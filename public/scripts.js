@@ -34,7 +34,7 @@ function showImage() {
   var img = new Image;
   if(f1){
   img.onload = function() {
-  context.drawImage(img, 65,250,350,300);
+  context.drawImage(img, 40,250,330,300);
   //alert('the image is drawn');
   }
   img.src = URL.createObjectURL(x.files[x.files.length-1]);
@@ -114,7 +114,7 @@ function showQR() {
   var img = new Image;
   if(f1){
   img.onload = function() {
-  context.drawImage(img, 420, 250, 350, 300);
+  context.drawImage(img, 430, 250, 330, 300);
   //alert('the image is drawn');
   }
   img.src = URL.createObjectURL(x.files[x.files.length-1]);
