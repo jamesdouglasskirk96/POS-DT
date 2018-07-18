@@ -1,0 +1,41 @@
+<html>
+
+<h1> POS Designer</h1>
+<script src="reimg.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<body>
+  <style>
+    input[type='text'] { font-size: 20px; }
+</style>
+
+<image id="back" src='dt.png' width = "800" height = "300" style="display: none;"></image>
+<image id="black" src= 'pure.jpg'style="display:none;"></image>
+<b>Choose a format: <image id="f1" src="bigtexgym.jpg" width="32" height="32" onmouseover="bigImg(this)" onmouseout="normalImg(this)"> </image> <image id="f2" src="bb.jpg" width="32" height="32" onmouseover="bigImg(this)" onmouseout="normalImg(this)"></image><image id="f3" onmouseover="bigImg(this)" onmouseout="normalImg(this)"></image><button onclick="reset()">reset</button></b>
+<p>Option 1: <input type="checkbox" id="myCheck1"  onclick="format1()"> </p>
+<p>Option 2: <input type="checkbox" id="myCheck1"  onclick="format2()"> </p>
+<div id="companyName"><b>Company Name: </b><input id ="name" type="text"> </div>
+<b>Upload the picture you want to put: </b><input type="file" id="uploaded-file" oninput="showImage()">
+<b>Upload your QR code: </b><input type="file" id="uploadedQR" name="pic2" accept="image/*" placeholder="You QR code" oninput="showQR()">
+<p><input type="submit" onclick="putName()"></p>
+<button onclick="clearCanvas()">Clear</button>
+<button onclick="downloadCanvasAsPng()">save</button>
+<p>If 'save' button is not working, Right Click the canvas and choose "Save Image As"</p>
+<canvas id="our-canvas" class="image-container" height="1000" width="800" style="padding: 0; margin: auto; display: block" ></canvas>
+<script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAQiqHcBfYDYwNx10nr15yYR_HZ_mZupz8",
+    authDomain: "pos-generator.firebaseapp.com",
+    databaseURL: "https://pos-generator.firebaseio.com",
+    projectId: "pos-generator",
+    storageBucket: "pos-generator.appspot.com",
+    messagingSenderId: "175463097530"
+  };
+  firebase.initializeApp(config);
+</script>
+<script src="scripts.js"></script>
+</body>
+
+
+</html>
