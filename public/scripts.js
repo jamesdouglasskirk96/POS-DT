@@ -148,20 +148,56 @@ function format1(x){
 
  }
 */
+/*
+0: if  checked,
+*/
+var op1;
+var op2;
+op1 = document.getElementById("option1");
+op2 = document.getElementById("option2");
+op1.onclick = function(){
+  format1();
+  if(!this.checked){
+    format1();
+  }
+  /*
+  if(this.checked == false){
+       format1();
+  }else{
+    this.cheked = false;
+    console.log("haha");
+  }
+  */
+}
+op2.onclick = function(){
+  //console.log("haha123");
+  /*
+  if(this.checked == false){
+      format2();
+  }else{
+    this.cheked = false;
+    console.log("haha1997");
+  }
+  */
+  format2();
+}
+
 function format1(){
+  /*
   if(select){
     alert("You can only choose one ");
   }
+  */
   f1 = true;
   f2 = false;
   f3 = false;
   select = true;
+  var x = document.getElementById("companyName");
+  x.style.visibility = "visible";
+
   //alert("hahaha");
 }
 function format2(){
-  if(select){
-    alert("You can only choose one")
-  }
 
 
   f1 = false;
@@ -169,11 +205,14 @@ function format2(){
   f3 = false;
   select = true;
   var x = document.getElementById("companyName");
+  x.style.visibility = "hidden";
+  /*
     if (x.style.display === "none") {
         x.style.display = "block";
     } else {
         x.style.display = "none";
     }
+    */
   }
 
 //}
