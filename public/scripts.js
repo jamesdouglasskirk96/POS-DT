@@ -109,7 +109,7 @@ function format1(x){
 
 
  }
-*/
+}
 /*
 0: if  checked,
 */
@@ -167,10 +167,6 @@ function format2(){
   }
 
 
-function bigImg(x) {
-    x.style.height = "500px";
-    x.style.width = "500px";
-}
 function reset(){
    f1 = false;
    f2 = false;
