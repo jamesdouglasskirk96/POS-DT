@@ -1,31 +1,42 @@
 <html>
-
 <center><h1> POS Designer</h1></center>
 <script src="reimg.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<body>
+<body background="digitaltown_bg.png">
   <style>
-    input[type='text'] { font-size: 20px; }
+    input[type='text'] { font-size: 13px; }
 </style>
 
 <image id="back" src='dt.png' width = "800" height = "300" style="display: none;"></image>
 <image id="black" src= 'pure.jpg'style="display:none;"></image>
-<center><image id="f1" src="bigtexgym.jpg" width="400px" height="400px"> </image> <image id="f2" src="bb.jpg" width="400px" height="400px" ></image><image id="f3" ></image></center>
-
+<center><image id="f1" src="bigtexgym_40.jpeg"> </image> <image id="f2" src="bb_40.jpeg"></image><image id="f3" ></image></center>
 <center>
+<table>
+  <tr>
+    <td align="center"><input name="subscribe" type="radio" value="1" id="option1"><label for="option1">Option1</label></td>
+    <td align="center"><input name="subscribe" type="radio" value="2" id="option2"><label for="option2">Option2</label></td>
+  </tr>
+  <tr>
+  <td colspan="2"><center><div id="companyName"><b>Company Name: </b><input id ="name" type="text" oninput="check();"> <br></div><br></center></td>
+  </tr>
+  <tr>
+    <td><b>Choose a picture: </b><input type="file" id="uploaded-file" oninput="check()"></td>
+    <td><b>Upload a QR code: </b><input type="file" id="uploadedQR" name="pic2" placeholder="You QR code" oninput="check();"></td>
+  </tr>
+  <tr>
+     <td id="td1"></td><td id="td2"></td>
 
-<input name="subscribe" type="radio" value="1" id="option1">
-<label for="option1">Option1</label>
-<input name="subscribe" type="radio" value="2" id="option2">
-<label for="option2">Option2</label>
-<p></p>
-<div id="companyName"><b>Company Name: </b><input id ="name" type="text"> </div>
-<b>Choose a picture: </b><input type="file" id="uploaded-file" oninput="showImage()">
-<b>Upload a QR code: </b><input type="file" id="uploadedQR" name="pic2" accept="image/*" placeholder="You QR code" oninput="showQR()">
-<p><input type="submit" onclick="putName()"></p>
-<button onclick="clearCanvas()">Clear</button>
-<button onclick="downloadCanvasAsPng()">save</button>
-<p>If 'save' button is not working, Right Click the canvas and choose "Save Image As"</p> </center>
+  </tr>
+  <tr>
+     <td colspan="2"><center><input type="submit" onclick="submit();"></p></center></td>
+  </tr>
+  <tr>
+    <td colspan="2"><center><button onclick="clearCanvas()">Clear</button> <nbsp><nbsp> <button onclick="downloadCanvasAsPng()">save</button></center></td>
+  </tr>
+  <tr><td colspan="2"><center><p>If 'save' button is not working, Right Click the canvas and choose "Save Image As"</p></center></td></tr>
+</table>
+</center>
+
 <canvas id="our-canvas" class="image-container" height="1000" width="800" style="padding: 0; margin: auto; display: block" ></canvas>
 <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
 <script>
