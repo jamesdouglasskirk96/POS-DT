@@ -1,13 +1,14 @@
 
 var canvas = document.getElementById('our-canvas'),
 context = canvas.getContext('2d');
+context.textAlign="center";
 //context.fillStyle("white");
 var clear = false;
 var img;
 var black;
 var button = document.getElementById('btn-download');
 var nameExist = false;
-var f1 = false;
+var f1 = true;
 var f2 = false;
 var f3 = false;
 var select1 = false;
@@ -31,12 +32,13 @@ window.onload = function() {
 
     }
     // check the only one picture to prevent stacking
-
+/*
 function check(){
   if(!f1&&!f2){
     alert("You should first choose an option");
   }
 }
+*/
 function putImage(){
   var x = document.getElementById("uploaded-file");
   var img = new Image;
@@ -78,7 +80,7 @@ function clearCanvas(){
 }
 // Check the length of the string to prevent overflow
 // If already been called, clear the string and
-
+/*
 function putName(){
   var name = document.getElementById("name").value;
   //alert(name);
@@ -93,7 +95,32 @@ if(nameExist){
   nameExist = true;
 }
 }
+*/
 
+function putName(){
+  var name = document.getElementById("name").value;
+  //alert(typeof name);
+  //alert(name);
+if(nameExist){
+  nameExist = false;
+  alert("Clear the canvas please ~")
+}else if(format1){
+
+  context.font = "60pt Calibri";
+  //alert(context.font.value)
+  font_num = 60;
+
+  while(context.measureText(name).width>canvas.width){
+    font_num = font_num -5;
+    font_string = font_num +"pt Calibri";
+    context.font = font_string;
+
+  }
+  //alert(name);
+  context.fillStyle = "white";
+  context.fillText(name,400,150);
+}
+}
 
 // check the only one picture to prevent stacking
 function format1(x){
