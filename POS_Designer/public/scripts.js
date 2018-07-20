@@ -17,7 +17,9 @@ var select = false;
 var choose1 = false;
 var choose2 = false;
 
-
+/*
+load background pictures
+*/
 window.onload = function() {
        context.font="45px Comic Sans MS";
        context.fillStyle = "red";
@@ -29,15 +31,19 @@ window.onload = function() {
     }
     // check the only one picture to prevent stacking
 function showImage() {
-
+  if(!f1&&!f2){
+    alert("You should first choose an option")
+  }
   // context.fillStyle = "#FF0000";
   // context.fillRect(20, 20, 150, 100);
+
+  }
+function putImage(){
   var x = document.getElementById("uploaded-file");
   var img = new Image;
   if(f1){
   img.onload = function() {
   context.drawImage(img, 40,250,330,300);
-  //alert('the image is drawn');
   }
   img.src = URL.createObjectURL(x.files[x.files.length-1]);
   }
@@ -46,7 +52,7 @@ function showImage() {
       context.drawImage(img,0,0,canvas.width,canvas.height/4);
     }
     img.src = URL.createObjectURL(x.files[x.files.length-1]);
-  }
+}
 //} else {
 
   // clean canvas
@@ -73,19 +79,21 @@ function clearCanvas(){
 }
 // Check the length of the string to prevent overflow
 // If already been called, clear the string and
+
 function putName(){
-     var name = document.getElementById("name").value;
-     //alert(name);
-   if(nameExist){
-     alert("Clear the canvas please ~")
-   }else{
+  var name = document.getElementById("name").value;
+  //alert(name);
+if(nameExist){
+  nameExist = false;
+  alert("Clear the canvas please ~")
+}else if(format1){
 
-     context.font = '70pt Calibri'
-     context.fillStyle = "white";
-     context.fillText(name,-135+canvas.width/2,150);
-     nameExist = true;
-
-   }
+  context.font = '70pt Calibri'
+  context.fillStyle = "white";
+  context.fillText(name,-135+canvas.width/2,150);
+  nameExist = true;
+}
+}
    /*
    if(name.length()>13){
       var name = document.getElementById('companyName').value;
@@ -105,36 +113,17 @@ function putName(){
 
    }
 */
-   }
+
 
     //console.log(name3);
 
 
 // check the only one picture to prevent stacking
 function showQR() {
-  var x = document.getElementById("uploadedQR");
-  var img = new Image;
-  if(f1){
-  img.onload = function() {
-  context.drawImage(img, 430, 250, 330, 300);
-  //alert('the image is drawn');
+  if(!f1&&!f2){
+    alert("You should first choose an option")
   }
-  img.src = URL.createObjectURL(x.files[x.files.length-1]);
-  }
-  else if(f2){
-    img.onload = function(){
-      context.drawImage(img,canvas.width/3-15,25+canvas.height/4,45+canvas.width/3,10+canvas.width/3);
-    }
-    img.src = URL.createObjectURL(x.files[x.files.length-1]);
-  }
-  /*
-  var x = document.getElementById("uploadedQR");
-  var img = new Image;
-  img.onload = function() {
-  context.drawImage(img, 440, 250, 350, 300);
-  }
-  img.src = URL.createObjectURL(x.files[0]);
-  */
+
 }/*
 function format1(x){
   if(select){
@@ -153,6 +142,23 @@ function format1(x){
 /*
 0: if  checked,
 */
+function showQR2(){
+  var x = document.getElementById("uploadedQR");
+  var img = new Image;
+  if(f1){
+  img.onload = function() {
+  context.drawImage(img, 430, 250, 330, 300);
+  //alert('the image is drawn');
+  }
+  img.src = URL.createObjectURL(x.files[x.files.length-1]);
+  }
+  else if(f2){
+    img.onload = function(){
+      context.drawImage(img,canvas.width/3-15,25+canvas.height/4,45+canvas.width/3,10+canvas.width/3);
+    }
+    img.src = URL.createObjectURL(x.files[x.files.length-1]);
+  }
+}
 var op1;
 var op2;
 op1 = document.getElementById("option1");
@@ -220,5 +226,12 @@ function reset(){
    f2 = false;
    f3 = false;
    location.reload();
+
+}
+function submit(){
+   showQR2();
+   //alert("QR");
+   putImage();
+
 
 }

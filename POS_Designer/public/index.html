@@ -21,14 +21,14 @@
   </tr>
   <tr>
     <td><b>Choose a picture: </b><input type="file" id="uploaded-file" oninput="showImage()"></td>
-    <td><b>Upload a QR code: </b><input type="file" id="uploadedQR" name="pic2" accept="image/*" placeholder="You QR code" oninput="showQR()"></td>
+    <td><b>Upload a QR code: </b><input type="file" id="uploadedQR" name="pic2" placeholder="You QR code" oninput="showQR()"></td>
   </tr>
   <tr>
      <td id="td1"></td><td id="td2"></td>
 
   </tr>
   <tr>
-     <td colspan="2"><center><input type="submit" onclick="putName()"></p></center></td>
+     <td colspan="2"><center><input type="submit" onclick="submit();"></p></center></td>
   </tr>
   <tr>
     <td colspan="2"><center><button onclick="clearCanvas()">Clear</button> <nbsp><nbsp> <button onclick="downloadCanvasAsPng()">save</button></center></td>
