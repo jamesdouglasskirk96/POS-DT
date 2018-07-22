@@ -17,6 +17,7 @@ var select3 = false;
 var select = false;
 var choose1 = false;
 var choose2 = false;
+var isSubmit = false;
 
 /*
 load background pictures
@@ -29,7 +30,7 @@ window.onload = function() {
        context.drawImage(img, 0 , 540, 800, 500);
       img2 = document.getElementById("black");
       context.drawImage(img2,0,0,800,550);
-
+       format1();
     }
     // check the only one picture to prevent stacking
 /*
@@ -76,6 +77,7 @@ function clearCanvas(){
  f1 = false;
  f2 = false;
  f3 = false;
+ isSubmit = false;
  location.reload();
 }
 // Check the length of the string to prevent overflow
@@ -111,7 +113,7 @@ if(nameExist){
   font_num = 60;
 
   while(context.measureText(name).width>canvas.width){
-    font_num = font_num -5;
+    font_num = font_num -2;
     font_string = font_num +"pt Calibri";
     context.font = font_string;
 
@@ -202,9 +204,14 @@ function reset(){
 
 }
 function submit(){
-
+   if(!isSubmit){
    showQR2();
    putImage();
    putName();
+   isSubmit = true;
+ }
+   else{
+     alert("Please click 'clear' button in order to create a new POS");
+   }
 
 }
