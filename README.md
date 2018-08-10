@@ -1,9 +1,10 @@
 # POS_Creator
-I was unable to host this web app on firebase but I will teach you how to use it. 
+
 
 This web app helps to gather and build POS images for printing. There are two versions for printing: 4x5 and 5x7.
+Click this link to make your POS: https://digitaltown5x7.netlify.com/
 
-
+If it's not working, try:
 1. Click "Clone or download" to download the entire package
 2. Unzip the package
 3. Click the folder you want to use: 'POS_Designer_4x5' or 'POS_Designer_5x7'
