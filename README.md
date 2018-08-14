@@ -1,5 +1,5 @@
 # POS_Creator
-
+// James Git Test
 
 This web app helps to gather and build POS images for printing. There are two versions for printing: 4x5 and 5x7.
 Click this link to make your POS: https://digitaltown5x7.netlify.com/
