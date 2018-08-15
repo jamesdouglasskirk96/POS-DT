@@ -2,25 +2,18 @@
 var canvas = document.getElementById('our-canvas'),
 context = canvas.getContext('2d');
 context.textAlign="center";
-// canvas.width = 1500;
-// canvas.height = 2100;
-
-// var n_ = document.getElementsById('name');
-// n_.style.visibility = "hidden";
 //context.fillStyle("white");
 var clear = false;
 var img;
 var black;
 var button = document.getElementById('btn-download');
 var nameExist = false;
-var f1 = false;
-var f2 = true;
+var f1 = true;
+var f2 = false;
 var f3 = false;
-var f4 = false;
 var select1 = false;
 var select2 = false;
 var select3 = false;
-var select4 = false;
 var select = false;
 var choose1 = false;
 var choose2 = false;
@@ -39,8 +32,8 @@ window.onload = function() {
       img2 = document.getElementById("black");
       context.drawImage(img2,0,0,1500,1200);
       img = document.getElementById("back");
-      context.drawImage(img, 0, 1050, 1500, 1200);
-      format1();
+       context.drawImage(img, 0, 1050, 1500, 1200);
+       format1();
     }
     // check the only one picture to prevent stacking
 /*
@@ -59,19 +52,12 @@ function putImage(){
   }
   img.src = URL.createObjectURL(x.files[x.files.length-1]);
   }
-  if(f2){
+  else if(f2){
     img.onload = function(){
       context.drawImage(img,0,0,canvas.width,canvas.height/4);
     }
     img.src = URL.createObjectURL(x.files[x.files.length-1]);
-  }
-  if(f4){
-    img.onload = function(){
-      context.drawImage(img,0,0,canvas.width,canvas.height/4);
-    }
-    img.src = URL.createObjectURL(x.files[x.files.length-1]);
-  }
-
+}
 //} else {
 
   // clean canvas
@@ -94,7 +80,6 @@ function clearCanvas(){
  f1 = false;
  f2 = false;
  f3 = false;
- f4 = false;
  isSubmit = false;
  location.reload();
 }
@@ -171,27 +156,17 @@ function showQR2(){
   }
   img.src = URL.createObjectURL(x.files[x.files.length-1]);
   }
-  if(f2){
+  else if(f2){
     img.onload = function(){
       context.drawImage(img,canvas.width/3,canvas.height/4+50,canvas.width/3,canvas.height/4);
-    }
-    img.src = URL.createObjectURL(x.files[x.files.length-1]);
-  }
-  if(f4){
-    img.onload = function(){
-      context.drawImage(img,canvas.width/3,canvas.height/4+50,canvas.width/3,canvas.height/5);
     }
     img.src = URL.createObjectURL(x.files[x.files.length-1]);
   }
 }
 var op1;
 var op2;
-var op3;
-var op4;
 op1 = document.getElementById("option1");
 op2 = document.getElementById("option2");
-op3 = document.getElementById("option3");
-op4 = document.getElementById("option4");
 op1.onclick = function(){
   format1();
 }
@@ -200,40 +175,15 @@ op2.onclick = function(){
   format2();
 }
 
-op3.onclick = function() {
-  format3();
-}
-
-op4.onclick = function() {
-  format4();
-}
-
 function format1(){
-  f1 = false;
-  f2 = true;
+  f1 = true;
+  f2 = false;
   f3 = false;
   select = true;
   var x = document.getElementById("companyName");
   x.style.visibility = "visible";
-  var x = document.getElementById("Discount");
-  x.style.visibility = "visible";
   var change = document.getElementById("td1");
-  change.innerHTML = "(image size: 1500x525)";
-
-  console.log(document.getElementById("our-canvas").width);
-
-  canvas.width = 1500;
-  canvas.height = 2100;
-
-  img2 = document.getElementById("black");
-  context.drawImage(img2,0,0,1500,2100);
-  img = document.getElementById("back");
-  context.drawImage(img, 0, 1050, 1500, 1200);
-
-  // document.getElementById("our-canvas").height = 2100;
-  // canvas.width = 1500;
-  // canvas.height = 2100;
-
+  change.innerHTML = "(image size: 630x630)";
   //(image size: 330x300)
   //alert("hahaha");
 }
@@ -243,69 +193,17 @@ function format2(){
   f3 = false;
   select = true;
   var x = document.getElementById("companyName");
-  x.style.visibility = "visible";
-  var x = document.getElementById("Discount");
-  x.style.visibility = "visible";
+  x.style.visibility = "hidden";
   var change = document.getElementById("td1");
   change.innerHTML = "(image size: 1500x525)";
 
-  canvas.width = 1500;
-  canvas.height = 2100;
+  }
 
-  img2 = document.getElementById("black");
-  context.drawImage(img2,0,0,1500,1200);
-  img = document.getElementById("back");
-  context.drawImage(img, 0, 1050, 1500, 1200);
-
-  var view = document.getElementById("our-canvas");
-  view.width = 600;
-  view.width = 900;
-}
-
-function format3() {
-  f1 = false;
-  f2 = true;
-  f3 = false;
-  select = true;
-  var x = document.getElementById("companyName");
-  x.style.visibility = "visible";
-  var x = document.getElementById("Discount");
-  x.style.visibility = "visible";
-  var change = document.getElementById("td1");
-  change.innerHTML = "(image size: 1500x525)";
-
-  var view = document.getElementById("our-canvas");
-  view.width = 900;
-  view.width = 1500;
-}
-
-function format4() {
-  f1 = false;
-  f2 = false;
-  f3 = false;
-  f4 = true;
-  select = true;
-  var x = document.getElementById("companyName");
-  x.style.visibility = "visible";
-  var x = document.getElementById("Discount");
-  x.style.visibility = "visible";
-  var change = document.getElementById("td1");
-  change.innerHTML = "(image size: 1500x525)";
-
-  canvas.width = 900;
-  canvas.height = 1500;
-
-  img2 = document.getElementById("black");
-  context.drawImage(img2,0,0,900,1500);
-  img = document.getElementById("back");
-  context.drawImage(img, 0, 700, 900, 860);
-}
 
 function reset(){
    f1 = false;
    f2 = false;
    f3 = false;
-   f4 = false;
    location.reload();
 
 }

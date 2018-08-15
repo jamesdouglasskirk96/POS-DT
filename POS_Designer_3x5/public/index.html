@@ -3,32 +3,29 @@
 <script src="reimg.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <body background="digitaltown_bg.png">
-<style>
+  <style>
     input[type='text'] { font-size: 13px; }
 </style>
 
 <image id="back" src='dt.png' width = "800" height = "300" style="display: none;"></image>
 <image id="black" src= 'pure.jpg'style="display:none;"></image>
-<center><image id="f1" src="bb_40.jpeg" width = "300" height = "300"> </image> <image id="f2" src="Option_2.png" width = "300" height = "300"></image> <image id="f3" src="Option_3.png" width = "300" height = "300"></image> <image id="f4" src="bb_40.jpeg" width = "300" height = "300"></image></center>
+<center><image id="f1" src="bigtexgym_40.jpeg"> </image> <image id="f2" src="bb_40.jpeg"></image><image id="f3" ></image></center>
 <center>
 <table>
   <tr>
-    <td style="position: absolute; left: 330px"><input name="subscribe" type="radio" value="1" id="option1" checked><label for="option1">Option1 (5x7)</label></td>
-    <td style="position: absolute; left: 630px"><input name="subscribe" type="radio" value="2" id="option2"><label for="option2">Option2 (2x3)</label></td>
-    <td style="position: absolute; left: 930px"><input name="subscribe" type="radio" value="3" id="option3"><label for="option3">Option3 (3x5)</label></td>
-    <td style="position: absolute; left: 1230px"><input name="subscribe" type="radio" value="4" id="option4"><label for="option4">Option4 (3x5)</label></td>
-    <td style="position: relative;" colspan="2" ><center><div id=""><b></b> <br></div><br></center></td>
+    <td align="center"><input name="subscribe" type="radio" value="1" id="option1" checked><label for="option1">Option1</label></td>
+    <td align="center"><input name="subscribe" type="radio" value="2" id="option2"><label for="option2">Option2</label></td>
   </tr>
   <tr>
-    <td colspan="2"><center><div id="companyName"><b>Company Name: </b><input id ="name" type="text"> <br></div><br></center></td>
-    <td colspan="2" ><center><div id="Discount"><b>Discount: </b><input id ="deal" type="text"> <br></div><br></center></td>
+  <td colspan="2"><center><div id="companyName"><b>Company Name: </b><input id ="name" type="text"> <br></div><br></center></td>
   </tr>
   <tr>
-    <td style="position: absolute; left: 650px"><b>Choose a picture: </b><input type="file" id="uploaded-file"></td>
-    <td style="position: absolute; left: 950px"><b>Upload a QR code: </b><input type="file" id="uploadedQR" name="pic2" placeholder="You QR code"></td>
+    <td><b>Choose a picture: </b><input type="file" id="uploaded-file"></td>
+    <td><b>Upload a QR code: </b><input type="file" id="uploadedQR" name="pic2" placeholder="You QR code"></td>
   </tr>
   <tr>
      <td id="td1"></td><td id="td2"></td>
+
   </tr>
   <tr>
      <td colspan="2"><center><input type="submit" onclick="submit();"></p></center></td>
