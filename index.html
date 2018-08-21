@@ -1,0 +1,61 @@
+<html>
+<center><h1> DigitalTown POS Designer</h1>
+<script src="reimg.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<body background="digitaltown_bg.png">
+<style>
+    input[type='text'] { font-size: 13px; }
+</style>
+
+<image id="back" src='dt.png' width = "800" height = "300" style="display: none;"></image>
+<image id="black" src= 'pure.jpg'style="display:none;"></image>
+<center><image id="f1" src="bb_40.jpeg" width = "300" height = "300"> </image> <image id="f2" src="Option_2.png" width = "300" height = "300"></image> <image id="f3" src="Option_3.png" width = "300" height = "300"></image> <image id="f4" src="bb_40.jpeg" width = "300" height = "300"></image></center>
+<center>
+<table>
+  <tr>
+    <td style="position: absolute; left: 330px"><input name="subscribe" type="radio" value="1" id="option1" checked><label for="option1">Option1 (5x7)</label></td>
+    <td style="position: absolute; left: 630px"><input name="subscribe" type="radio" value="2" id="option2"><label for="option2">Option2 (2x3)</label></td>
+    <td style="position: absolute; left: 930px"><input name="subscribe" type="radio" value="3" id="option3"><label for="option3">Option3 (3x5)</label></td>
+    <td style="position: absolute; left: 1230px"><input name="subscribe" type="radio" value="4" id="option4"><label for="option4">Option4 (3x5)</label></td>
+    <td style="position: relative;" colspan="2" ><center><div id=""><b></b> <br></div><br></center></td>
+  </tr>
+  <tr>
+    <td colspan="2"><center><div id="companyName"><b>Phrase: </b><input id ="phrase" type="text"> <br></div><br></center></td>
+    <td colspan="2" ><center><div id="Discount"><b>Discount: </b><input id ="deal" type="text"> <br></div><br></center></td>
+  </tr>
+  <tr>
+    <td style="position: absolute; left: 650px"><b>Choose a Logo Picture: </b><input type="file" id="uploaded-file"><b>Upload a QR code Picture: </b><input type="file" id="uploadedQR" name="pic2" placeholder="You QR code"></td>
+  </tr>
+  <tr>
+     <td id="td1"></td><td id="td2"></td>
+  </tr>
+  <tr>
+     <td colspan="2"><center><button onclick="submit();">Add Pictures</button><button onclick="addPhrase();">Add Phrase</button><button onclick="addDiscount();">Add Discount</button></center></td>
+  </tr>
+  <tr>
+    <td colspan="2"><center><button onclick="clearCanvas();">Clear</button> <nbsp><nbsp> <button onclick="downloadCanvasAsPng()">save</button></center></td>
+  </tr>
+  <tr><td colspan="2"><center><p>If 'save' button is not working, Right Click the canvas and choose "Save Image As"</p></center></td></tr>
+</table>
+</center>
+
+<canvas id="our-canvas" class="image-container" height="2100" width="1500" style="padding: 0; margin: auto; display: block" ></canvas>
+
+<script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyDI3zYNzGynIBy1IEr59GbTG63SQOwZ5k0",
+    authDomain: "pos57-62e67.firebaseapp.com",
+    databaseURL: "https://pos57-62e67.firebaseio.com",
+    projectId: "pos57-62e67",
+    storageBucket: "",
+    messagingSenderId: "781043127987"
+  };
+  firebase.initializeApp(config);
+</script>
+<script src="scripts.js"></script>
+</body>
+
+
+</html>

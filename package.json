@@ -1,0 +1,19 @@
+{
+  "name": "pos",
+  "version": "1.0.0",
+  "description": "// James Git Test",
+  "main": "index.html",
+  "scripts": {
+    "test": "npm build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jamesdouglasskirk96/POS-DT.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jamesdouglasskirk96/POS-DT/issues"
+  },
+  "homepage": "https://github.com/jamesdouglasskirk96/POS-DT#readme"
+}
