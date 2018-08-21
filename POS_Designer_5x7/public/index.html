@@ -1,5 +1,5 @@
 <html>
-<center><h1> DigitalTown POS Designer for 5:7 paper</h1><a href="https://pos-generator.firebaseapp.com/" class="button">Click to make a 4:5 one</a></center></br>
+<center><h1> DigitalTown POS Designer</h1>
 <script src="reimg.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <body background="digitaltown_bg.png">
@@ -20,7 +20,7 @@
     <td style="position: relative;" colspan="2" ><center><div id=""><b></b> <br></div><br></center></td>
   </tr>
   <tr>
-    <td colspan="2"><center><div id="companyName"><b>Company Name: </b><input id ="name" type="text"> <br></div><br></center></td>
+    <td colspan="2"><center><div id="companyName"><b>Phrase: </b><input id ="phrase" type="text"> <br></div><br></center></td>
     <td colspan="2" ><center><div id="Discount"><b>Discount: </b><input id ="deal" type="text"> <br></div><br></center></td>
   </tr>
   <tr>
@@ -31,7 +31,9 @@
      <td id="td1"></td><td id="td2"></td>
   </tr>
   <tr>
-     <td colspan="2"><center><input type="submit" onclick="submit();"></p></center></td>
+     <td colspan="2"><center><button onclick="submit();">Add Pictures</button></center></td>
+     <td colspan="2"><center><button onclick="addPhrase();">Add Phrase</button></center></td>
+     <td colspan="2"><center><button onclick="addDiscount();">Add Discount</button></center></td>
   </tr>
   <tr>
     <td colspan="2"><center><button onclick="clearCanvas();">Clear</button> <nbsp><nbsp> <button onclick="downloadCanvasAsPng()">save</button></center></td>

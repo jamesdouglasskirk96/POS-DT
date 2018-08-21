@@ -12,7 +12,7 @@ var clear = false;
 var img;
 var black;
 var button = document.getElementById('btn-download');
-var nameExist = false;
+// var nameExist = false;
 var f1 = false;
 var f2 = true;
 var f3 = false;
@@ -54,10 +54,10 @@ function putImage(){
   var x = document.getElementById("uploaded-file");
   var img = new Image;
   if(f1){
-  img.onload = function() {
-  context.drawImage(img, 40*1.875,250*2.1-80,630,630);
-  }
-  img.src = URL.createObjectURL(x.files[x.files.length-1]);
+    img.onload = function(){
+      context.drawImage(img,0,0,canvas.width,canvas.height/4);
+    }
+    img.src = URL.createObjectURL(x.files[x.files.length-1]);
   }
   if(f2){
     img.onload = function(){
@@ -118,28 +118,21 @@ if(nameExist){
 */
 
 function putName(){
-  var name = document.getElementById("name").value;
-  //alert(typeof name);
-  //alert(name);
-if(nameExist){
-  nameExist = false;
-  alert("Clear the canvas please ~")
-}else if(format1){
+  var phrase = document.getElementById("phrase").value;
 
-  context.font = "180pt Calibri";
-  //alert(context.font.value)
-  font_num = 180;
+  if (f2) {
+    context.font = "180pt Calibri";
+    // var font_num = 180;
+    //
+    // while(context.measureText(phrase).width>canvas.width) {
+    //   font_num = font_num -2;
+    //   font_string = font_num +"pt Calibri";
+    //   context.font = font_string;
+    // }
 
-  while(context.measureText(name).width>canvas.width){
-    font_num = font_num -2;
-    font_string = font_num +"pt Calibri";
-    context.font = font_string;
-
+    context.fillStyle = "white";
+    context.fillText("Hello World",0,0);
   }
-  //alert(name);
-  context.fillStyle = "white";
-  context.fillText(name,750,300);
-}
 }
 
 // check the only one picture to prevent stacking
@@ -164,20 +157,24 @@ function showQR2(){
   var x = document.getElementById("uploadedQR");
   var img = new Image;
   if(f1){
-  img.onload = function() {
-    context.drawImage(img, 40*1.875+330*1.875+100,250*2.1-80,630,630);
-
-  //alert('the image is drawn' 430 250);
-  }
-  img.src = URL.createObjectURL(x.files[x.files.length-1]);
-  }
-  if(f2){
     img.onload = function(){
       context.drawImage(img,canvas.width/3,canvas.height/4+50,canvas.width/3,canvas.height/4);
     }
     img.src = URL.createObjectURL(x.files[x.files.length-1]);
   }
+  if(f2){
+    img.onload = function(){
+      context.drawImage(img,120,100,360,360);
+    }
+    img.src = URL.createObjectURL(x.files[x.files.length-1]);
+  }
   if(f4){
+    img.onload = function(){
+      context.drawImage(img,canvas.width/3,canvas.height/4+50,canvas.width/3,canvas.height/5);
+    }
+    img.src = URL.createObjectURL(x.files[x.files.length-1]);
+  }
+  if(f3){
     img.onload = function(){
       context.drawImage(img,canvas.width/3,canvas.height/4+50,canvas.width/3,canvas.height/5);
     }
@@ -196,7 +193,6 @@ op1.onclick = function(){
   format1();
 }
 op2.onclick = function(){
-
   format2();
 }
 
@@ -209,9 +205,10 @@ op4.onclick = function() {
 }
 
 function format1(){
-  f1 = false;
-  f2 = true;
+  f1 = true;
+  f2 = false;
   f3 = false;
+  f4 = false;
   select = true;
   var x = document.getElementById("companyName");
   x.style.visibility = "visible";
@@ -220,7 +217,7 @@ function format1(){
   var change = document.getElementById("td1");
   change.innerHTML = "(image size: 1500x525)";
 
-  console.log(document.getElementById("our-canvas").width);
+  // console.log(document.getElementById("our-canvas").width);
 
   canvas.width = 1500;
   canvas.height = 2100;
@@ -241,6 +238,7 @@ function format2(){
   f1 = false;
   f2 = true;
   f3 = false;
+  f4 = false;
   select = true;
   var x = document.getElementById("companyName");
   x.style.visibility = "visible";
@@ -249,23 +247,23 @@ function format2(){
   var change = document.getElementById("td1");
   change.innerHTML = "(image size: 1500x525)";
 
-  canvas.width = 1500;
-  canvas.height = 2100;
+  canvas.width = 600;
+  canvas.height = 900;
 
   img2 = document.getElementById("black");
-  context.drawImage(img2,0,0,1500,1200);
-  img = document.getElementById("back");
-  context.drawImage(img, 0, 1050, 1500, 1200);
-
-  var view = document.getElementById("our-canvas");
-  view.width = 600;
-  view.width = 900;
+  context.drawImage(img2,0,0,600,900);
+  var img = new Image;
+  img.onload = function(){
+    context.drawImage(img,60,canvas.height*0.65,480,274.2857142857);
+  }
+  img.src = "digitaltown-white.png";
 }
 
 function format3() {
   f1 = false;
-  f2 = true;
-  f3 = false;
+  f2 = false;
+  f3 = true;
+  f4 = false;
   select = true;
   var x = document.getElementById("companyName");
   x.style.visibility = "visible";
@@ -274,9 +272,16 @@ function format3() {
   var change = document.getElementById("td1");
   change.innerHTML = "(image size: 1500x525)";
 
-  var view = document.getElementById("our-canvas");
-  view.width = 900;
-  view.width = 1500;
+  canvas.width = 900;
+  canvas.height = 1500;
+
+  img2 = document.getElementById("black");
+  context.drawImage(img2,0,0,900,1500);
+  var img = new Image;
+  img.onload = function(){
+    context.drawImage(img,canvas.width*0.09,canvas.height*0.7,canvas.width/1.2,canvas.height/4);
+  }
+  img.src = "digitaltown-white.png";
 }
 
 function format4() {
@@ -313,11 +318,118 @@ function submit(){
    if(!isSubmit){
    showQR2();
    putImage();
-   putName();
+   // putName();
+   // addText();
    isSubmit = true;
  }
    else{
      alert("Please click 'clear' button in order to create a new POS");
    }
 
+}
+
+function addPhrase() {
+  if (f2)
+  {
+    var phrase = document.getElementById("phrase").value;
+    var phrase_count = phrase.split(' ').length;
+    var phrase_array = phrase.split(' ');
+    if (phrase_count < 3) {
+      context.font = "60px Open Sans";
+      context.fillStyle = "#00A2FF";
+      context.fillText(phrase, (canvas.width - context.measureText(phrase).width)/2, canvas.height/1.8);
+    } else {
+      if (isOdd(phrase_count) == 0) {
+        // even
+        var count = phrase_count/2;
+        var p1 = '';
+        var p2 = '';
+        for (var i = 0; i < count; i++) {
+          p1 += " " + phrase_array[i];
+        }
+        for (var i = count; i < phrase_count; i++) {
+          p2 += " " + phrase_array[i];
+        }
+        p1 = p1.trim();
+        p2 = p2.trim();
+        context.font = "60px Open Sans";
+        context.fillStyle = "#00A2FF";
+        var font = 60;
+        var c_width = canvas.width*0.8;
+        while (context.measureText(p1).width >= c_width) {
+          font -= 2;
+          context.font = font + "px Open Sans";
+        }
+        while (context.measureText(p2).width >= c_width) {
+          font -= 2;
+          context.font = font + "px Open Sans";
+        }
+        context.fillText(p1, (canvas.width - context.measureText(p1).width)/2, 560);
+        context.fillText(p2, (canvas.width - context.measureText(p2).width)/2, 627);
+      } else {
+        // odd
+        var count_top = phrase_count/2;
+        count_top = Math.trunc(count_top);
+        var count_bottom = phrase_count - count_top;
+
+        var p1 = '';
+        var p2 = '';
+        for (var i = 0; i < count_top; i++) {
+          p1 += " " + phrase_array[i];
+        }
+        for (var i = count_top; i < phrase_count; i++) {
+          p2 += " " + phrase_array[i];
+        }
+        p1 = p1.trim();
+        p2 = p2.trim();
+        context.font = "60px Open Sans";
+        context.fillStyle = "#00A2FF";
+        var font = 60;
+        var c_width = canvas.width*0.8;
+        while (context.measureText(p1).width >= c_width) {
+          font -= 2;
+          context.font = font + "px Open Sans";
+        }
+        while (context.measureText(p2).width >= c_width) {
+          font -= 2;
+          context.font = font + "px Open Sans";
+        }
+        context.fillText(p1, (canvas.width - context.measureText(p1).width)/2, 500);
+        context.fillText(p2, (canvas.width - context.measureText(p2).width)/2, 642);
+      }
+    }
+  }
+  if (f3)
+  {
+    var phrase = document.getElementById("phrase").value;
+    context.font = "20px Georgia";
+    context.fillStyle = "white";
+    context.fillText(phrase, 100, 50);
+  }
+
+}
+
+function isOdd(num) { return num % 2;}
+
+function addDiscount() {
+  if (f3)
+  {
+    // console.log(3/2)
+    var phrase = document.getElementById("deal").value;
+    var phrase_count = phrase.split(' ').length
+    if (phrase_count < 3) {
+      context.font = "60px Open Sans";
+      context.fillStyle = "#00A2FF";
+      context.fillText(phrase, (canvas.width - context.measureText(phrase).width)/2, 200);
+      console.log(context.measureText(phrase).height)
+    } else {
+      if (isOdd(phrase_count) == 0) {
+        // even
+
+      } else {
+        // odd
+
+      }
+    }
+  }
 }
