@@ -176,7 +176,7 @@ function showQR2(){
   }
   if(f3){
     img.onload = function(){
-      context.drawImage(img,canvas.width/3,canvas.height/4+50,canvas.width/3,canvas.height/5);
+      context.drawImage(img,225,425,450,450);
     }
     img.src = URL.createObjectURL(x.files[x.files.length-1]);
   }
@@ -402,9 +402,72 @@ function addPhrase() {
   if (f3)
   {
     var phrase = document.getElementById("phrase").value;
-    context.font = "20px Georgia";
-    context.fillStyle = "white";
-    context.fillText(phrase, 100, 50);
+    var phrase_count = phrase.split(' ').length;
+    var phrase_array = phrase.split(' ');
+    if (phrase_count < 3) {
+      context.font = "60px Open Sans";
+      context.fillStyle = "#00A2FF";
+      context.fillText(phrase, (canvas.width - context.measureText(phrase).width)/2, 1000);
+    } else {
+      if (isOdd(phrase_count) == 0) {
+        // even
+        var count = phrase_count/2;
+        var p1 = '';
+        var p2 = '';
+        for (var i = 0; i < count; i++) {
+          p1 += " " + phrase_array[i];
+        }
+        for (var i = count; i < phrase_count; i++) {
+          p2 += " " + phrase_array[i];
+        }
+        p1 = p1.trim();
+        p2 = p2.trim();
+        context.font = "60px Open Sans";
+        context.fillStyle = "#00A2FF";
+        var font = 60;
+        var c_width = canvas.width*0.8;
+        while (context.measureText(p1).width >= c_width) {
+          font -= 2;
+          context.font = font + "px Open Sans";
+        }
+        while (context.measureText(p2).width >= c_width) {
+          font -= 2;
+          context.font = font + "px Open Sans";
+        }
+        context.fillText(p1, (canvas.width - context.measureText(p1).width)/2, 1000);
+        context.fillText(p2, (canvas.width - context.measureText(p2).width)/2, 1150);
+      } else {
+        // odd
+        var count_top = phrase_count/2;
+        count_top = Math.trunc(count_top);
+        var count_bottom = phrase_count - count_top;
+
+        var p1 = '';
+        var p2 = '';
+        for (var i = 0; i < count_top; i++) {
+          p1 += " " + phrase_array[i];
+        }
+        for (var i = count_top; i < phrase_count; i++) {
+          p2 += " " + phrase_array[i];
+        }
+        p1 = p1.trim();
+        p2 = p2.trim();
+        context.font = "60px Open Sans";
+        context.fillStyle = "#00A2FF";
+        var font = 60;
+        var c_width = canvas.width*0.8;
+        while (context.measureText(p1).width >= c_width) {
+          font -= 2;
+          context.font = font + "px Open Sans";
+        }
+        while (context.measureText(p2).width >= c_width) {
+          font -= 2;
+          context.font = font + "px Open Sans";
+        }
+        context.fillText(p1, (canvas.width - context.measureText(p1).width)/2, 1000);
+        context.fillText(p2, (canvas.width - context.measureText(p2).width)/2, 1100);
+      }
+    }
   }
 
 }
@@ -416,19 +479,70 @@ function addDiscount() {
   {
     // console.log(3/2)
     var phrase = document.getElementById("deal").value;
-    var phrase_count = phrase.split(' ').length
+    var phrase_count = phrase.split(' ').length;
+    var phrase_array = phrase.split(' ');
     if (phrase_count < 3) {
       context.font = "60px Open Sans";
       context.fillStyle = "#00A2FF";
-      context.fillText(phrase, (canvas.width - context.measureText(phrase).width)/2, 200);
-      console.log(context.measureText(phrase).height)
+      context.fillText(phrase, (canvas.width - context.measureText(phrase).width)/2, 250);
     } else {
       if (isOdd(phrase_count) == 0) {
         // even
-
+        var count = phrase_count/2;
+        var p1 = '';
+        var p2 = '';
+        for (var i = 0; i < count; i++) {
+          p1 += " " + phrase_array[i];
+        }
+        for (var i = count; i < phrase_count; i++) {
+          p2 += " " + phrase_array[i];
+        }
+        p1 = p1.trim();
+        p2 = p2.trim();
+        context.font = "60px Open Sans";
+        context.fillStyle = "#00A2FF";
+        var font = 60;
+        var c_width = canvas.width*0.8;
+        while (context.measureText(p1).width >= c_width) {
+          font -= 2;
+          context.font = font + "px Open Sans";
+        }
+        while (context.measureText(p2).width >= c_width) {
+          font -= 2;
+          context.font = font + "px Open Sans";
+        }
+        context.fillText(p1, (canvas.width - context.measureText(p1).width)/2, 200);
+        context.fillText(p2, (canvas.width - context.measureText(p2).width)/2, 350);
       } else {
         // odd
+        var count_top = phrase_count/2;
+        count_top = Math.trunc(count_top);
+        var count_bottom = phrase_count - count_top;
 
+        var p1 = '';
+        var p2 = '';
+        for (var i = 0; i < count_top; i++) {
+          p1 += " " + phrase_array[i];
+        }
+        for (var i = count_top; i < phrase_count; i++) {
+          p2 += " " + phrase_array[i];
+        }
+        p1 = p1.trim();
+        p2 = p2.trim();
+        context.font = "60px Open Sans";
+        context.fillStyle = "#00A2FF";
+        var font = 60;
+        var c_width = canvas.width*0.8;
+        while (context.measureText(p1).width >= c_width) {
+          font -= 2;
+          context.font = font + "px Open Sans";
+        }
+        while (context.measureText(p2).width >= c_width) {
+          font -= 2;
+          context.font = font + "px Open Sans";
+        }
+        context.fillText(p1, (canvas.width - context.measureText(p1).width)/2, 200);
+        context.fillText(p2, (canvas.width - context.measureText(p2).width)/2, 350);
       }
     }
   }
